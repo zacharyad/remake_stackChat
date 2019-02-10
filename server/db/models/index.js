@@ -4,7 +4,7 @@ const Author = require('./author');
 
 Channel.hasMany(Message, {
   onDelete: 'cascade',
-  hooks: true
+  hooks: true,
 });
 
 Author.hasMany(Message);
@@ -15,5 +15,5 @@ Message.belongsTo(Author);
 module.exports = {
   Channel,
   Message,
-  Author
+  Author,
 };
