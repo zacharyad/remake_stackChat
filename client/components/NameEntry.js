@@ -14,19 +14,17 @@ export class NameEntry extends Component {
   render() {
     //console.log('props from messageEntry: ', this.props);
     return (
-      <div>
-        <form className="form-inline">
-          <label htmlFor="name">Your name:</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            className="form-control"
-            onChange={this.handleChange}
-            value={this.props.userName}
-          />
-        </form>
-      </div>
+      <form className="form-inline">
+        <label htmlFor="name">Your name:</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          className="form-control"
+          onChange={this.handleChange}
+          value={this.props.userName}
+        />
+      </form>
     );
   }
 }
