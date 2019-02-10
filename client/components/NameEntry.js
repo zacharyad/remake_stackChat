@@ -9,11 +9,10 @@ export class NameEntry extends Component {
   }
 
   handleChange(event) {
-    this.props.userSet(event.target.value);
+    this.props.writing(event.target.value);
   }
-
   render() {
-    console.log('from the name entry component', this.props);
+    //console.log('props from messageEntry: ', this.props);
     return (
       <div>
         <form className="form-inline">
@@ -39,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    userSet: nameStr => dispatch(userSet(nameStr)),
+    writing: text => dispatch(userSet(text)),
   };
 };
 

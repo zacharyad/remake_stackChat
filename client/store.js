@@ -27,9 +27,9 @@ const gotNewMessageFromServer = messageFrom => ({
   messageFrom,
 });
 
-export const userSet = userName => ({
+export const userSet = newMessageEntry => ({
   type: USER_SET,
-  name: userName,
+  newMessageEntry,
 });
 
 // //thunk action creators
@@ -72,29 +72,29 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GOT_MESSAGES_FROM_SERVER: {
-      let newState = {
+      const newState = {
         ...state,
         messages: action.messagesArr,
       };
       return newState;
     }
     case WRITING_MESSAGE: {
-      let newState = {
+      const newState = {
         ...state,
         newMessageEntry: action.newMessageEntry,
       };
       return newState;
     }
     case USER_SET: {
-      let newState = {
+      const newState = {
         ...state,
-        user: action.name,
+        user: action.newMessageEntry,
       };
       return newState;
     }
     case GOT_NEW_MESSAGE_FROM_SERVER: {
-      let historyId = `${action.messageFrom.channelId}`;
-      let newState = {
+      const historyId = `${action.messageFrom.channelId}`;
+      const newState = {
         ...state,
         messages: [...state.messages, action.messageFrom],
         newMessageEntry: '',
